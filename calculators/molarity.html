@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Solvix - Molarity</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <header class="header">
+
+            <div class="logo">
+                SOLVIX
+            </div>
+
+            <div class="subtitle">
+                Molarity Calculator
+            </div>
+
+        </header>
+
+
+        <div class="calculator">
+
+
+            <div class="input-group">
+
+                <label for="mass">
+                    Mass
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="mass"
+                        placeholder="Enter mass"
+                        step="any"
+                    >
+
+                    <span>g</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="molecularWeight">
+                    Molecular Weight
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="molecularWeight"
+                        placeholder="Enter molecular weight"
+                        step="any"
+                    >
+
+                    <span>g/mol</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="volume">
+                    Volume
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="volume"
+                        placeholder="Enter volume"
+                        step="any"
+                    >
+
+                    <span>L</span>
+
+                </div>
+
+            </div>
+
+
+            <button onclick="calculateMolarity()">
+                CALCULATE
+            </button>
+
+
+            <div class="result">
+
+                <div class="result-label">
+                    Result
+                </div>
+
+                <div id="result">
+                    Molarity = 0.000 M
+                </div>
+
+            </div>
+
+
+            <button
+                onclick="goHome()"
+                style="margin-top: 15px;"
+            >
+                BACK TO HOME
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
