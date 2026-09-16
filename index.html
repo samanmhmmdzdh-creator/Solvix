@@ -2,17 +2,30 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Solvix - Molarity Calculator</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Solvix</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
     <div class="container">
+
+
+        <!-- Header -->
 
         <header class="header">
 
@@ -21,100 +34,138 @@
             </div>
 
             <div class="subtitle">
-                Molarity Calculator
+                Laboratory Calculator
             </div>
+
+            <p class="choose-text">
+                Choose a tool
+            </p>
 
         </header>
 
 
-        <div class="calculator">
 
-            <div class="input-group">
+        <!-- Solution Preparation -->
 
-                <label for="mass">
-                    Mass
-                </label>
+        <div
+            class="card"
+            onclick="openCalculator('molarity')"
+        >
 
-                <div class="input-row">
-
-                    <input
-                        type="number"
-                        id="mass"
-                        placeholder="Enter mass"
-                        step="any"
-                    >
-
-                    <span>g</span>
-
-                </div>
-
+            <div class="icon">
+                🧪
             </div>
 
-
-            <div class="input-group">
-
-                <label for="molecularWeight">
-                    Molecular Weight
-                </label>
-
-                <div class="input-row">
-
-                    <input
-                        type="number"
-                        id="molecularWeight"
-                        placeholder="Enter molecular weight"
-                        step="any"
-                    >
-
-                    <span>g/mol</span>
-
-                </div>
-
+            <div class="card-title">
+                Solution Preparation
             </div>
 
-
-            <div class="input-group">
-
-                <label for="volume">
-                    Volume
-                </label>
-
-                <div class="input-row">
-
-                    <input
-                        type="number"
-                        id="volume"
-                        placeholder="Enter volume"
-                        step="any"
-                    >
-
-                    <span>L</span>
-
-                </div>
-
-            </div>
-
-
-            <button onclick="calculateMolarity()">
-                CALCULATE
-            </button>
-
-
-            <div class="result">
-
-                <div class="result-label">
-                    Result
-                </div>
-
-                <div id="result">
-                    Molarity = 0.000 M
-                </div>
-
+            <div class="card-description">
+                Prepare laboratory solutions
+                using concentration and amount calculations.
             </div>
 
         </div>
 
+
+
+        <!-- Dilution -->
+
+        <div
+            class="card"
+            onclick="openCalculator('dilution')"
+        >
+
+            <div class="icon">
+                ⚗️
+            </div>
+
+            <div class="card-title">
+                Dilution
+            </div>
+
+            <div class="card-description">
+                Calculate dilution volumes
+                and final concentrations.
+            </div>
+
+        </div>
+
+
+
+        <!-- Concentration -->
+
+        <div
+            class="card"
+            onclick="openCalculator('concentration')"
+        >
+
+            <div class="icon">
+                🧮
+            </div>
+
+            <div class="card-title">
+                Concentration
+            </div>
+
+            <div class="card-description">
+                Calculate molarity, molality,
+                normality and other concentrations.
+            </div>
+
+        </div>
+
+
+
+        <!-- Buffer & pH -->
+
+        <div
+            class="card"
+            onclick="openCalculator('ph')"
+        >
+
+            <div class="icon">
+                🧫
+            </div>
+
+            <div class="card-title">
+                Buffer & pH
+            </div>
+
+            <div class="card-description">
+                Calculate pH, pOH and
+                buffer-related values.
+            </div>
+
+        </div>
+
+
+
+        <!-- Unit Converter -->
+
+        <div
+            class="card"
+            onclick="openCalculator('units')"
+        >
+
+            <div class="icon">
+                📐
+            </div>
+
+            <div class="card-title">
+                Unit Converter
+            </div>
+
+            <div class="card-description">
+                Convert mass, volume,
+                concentration and temperature units.
+            </div>
+
+        </div>
+
+
     </div>
+
 
 
     <script src="script.js"></script>
