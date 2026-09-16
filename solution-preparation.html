@@ -1,0 +1,164 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Solvix - Solution Preparation</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="logo">
+                SOLVIX
+            </div>
+
+            <div class="subtitle">
+                Solution Preparation
+            </div>
+
+            <p class="choose-text">
+                Choose a calculation
+            </p>
+
+        </header>
+
+
+
+        <!-- Molarity -->
+
+        <div
+            class="card"
+            onclick="openCalculator('molarity')"
+        >
+
+            <div class="icon">
+                🧪
+            </div>
+
+            <div class="card-title">
+                Molarity
+            </div>
+
+            <div class="card-description">
+                Calculate molarity from mass,
+                molecular weight and volume.
+            </div>
+
+        </div>
+
+
+
+        <!-- Normality -->
+
+        <div
+            class="card"
+            onclick="openCalculator('normality')"
+        >
+
+            <div class="icon">
+                ⚗️
+            </div>
+
+            <div class="card-title">
+                Normality
+            </div>
+
+            <div class="card-description">
+                Calculate solution normality
+                using equivalent weight.
+            </div>
+
+        </div>
+
+
+
+        <!-- Molality -->
+
+        <div
+            class="card"
+            onclick="openCalculator('molality')"
+        >
+
+            <div class="icon">
+                🧫
+            </div>
+
+            <div class="card-title">
+                Molality
+            </div>
+
+            <div class="card-description">
+                Calculate molality based on
+                solute amount and solvent mass.
+            </div>
+
+        </div>
+
+
+
+        <!-- Percentage -->
+
+        <div
+            class="card"
+            onclick="openCalculator('percentage')"
+        >
+
+            <div class="icon">
+                📊
+            </div>
+
+            <div class="card-title">
+                Percentage Solutions
+            </div>
+
+            <div class="card-description">
+                Calculate % w/v, % w/w
+                and % v/v solutions.
+            </div>
+
+        </div>
+
+
+
+        <!-- Back to Home -->
+
+        <button
+            onclick="goHome()"
+            style="margin-top: 20px;"
+        >
+            BACK TO HOME
+        </button>
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
