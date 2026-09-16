@@ -4,23 +4,27 @@
 
 
 // ----------------------------------------
-// Open Calculator / Section
+// Open Calculator or Section
 // ----------------------------------------
 
 function openCalculator(type) {
 
+    // Solution Preparation
     if (type === "solution-preparation") {
 
         window.location.href = "solution-preparation.html";
 
+        return;
     }
 
 
-    else if (type === "molarity") {
+    // Molarity
+    if (type === "molarity") {
 
         window.location.href =
             "calculators/molarity.html";
 
+        return;
     }
 
 }
@@ -51,7 +55,7 @@ function calculateMolarity() {
         document.getElementById("result");
 
 
-    // Validate input
+    // Validate inputs
 
     if (
         isNaN(mass) ||
@@ -66,17 +70,18 @@ function calculateMolarity() {
             "Please enter valid values.";
 
         return;
-
     }
 
 
-    // Molarity calculation
+    // Molarity formula
+    //
+    // M = mass / molecular weight / volume
 
     const molarity =
         mass / molecularWeight / volume;
 
 
-    // Display result
+    // Show result
 
     result.textContent =
         `Molarity = ${molarity.toFixed(3)} M`;
@@ -85,10 +90,29 @@ function calculateMolarity() {
 
 
 // ----------------------------------------
-// Go Home
+// Go to Home
 // ----------------------------------------
 
 function goHome() {
+
+    const currentPath =
+        window.location.pathname;
+
+
+    // If we are inside calculators folder
+
+    if (
+        currentPath.includes("/calculators/")
+    ) {
+
+        window.location.href =
+            "../index.html";
+
+        return;
+    }
+
+
+    // If we are on another page
 
     window.location.href =
         "index.html";
