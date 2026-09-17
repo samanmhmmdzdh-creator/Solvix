@@ -1,1 +1,183 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Solvix - Normality</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="logo">
+                SOLVIX
+            </div>
+
+            <div class="subtitle">
+                Normality Calculator
+            </div>
+
+        </header>
+
+
+
+        <!-- Calculator -->
+
+        <div class="calculator">
+
+
+            <!-- Mass -->
+
+            <div class="input-group">
+
+                <label for="mass">
+                    Mass
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="mass"
+                        placeholder="Enter mass"
+                        step="any"
+                    >
+
+                    <span>g</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Equivalent Weight -->
+
+            <div class="input-group">
+
+                <label for="equivalentWeight">
+                    Equivalent Weight
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="equivalentWeight"
+                        placeholder="Enter equivalent weight"
+                        step="any"
+                    >
+
+                    <span>g/eq</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Volume -->
+
+            <div class="input-group">
+
+                <label for="volume">
+                    Volume
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="volume"
+                        placeholder="Enter volume"
+                        step="any"
+                    >
+
+                    <span>L</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Calculate -->
+
+            <button onclick="calculateNormality()">
+                CALCULATE
+            </button>
+
+
+
+            <!-- Result -->
+
+            <div class="result">
+
+                <div class="result-label">
+                    Result
+                </div>
+
+                <div id="normalityResult">
+                    Normality = 0.000 N
+                </div>
+
+            </div>
+
+
+
+            <!-- Back -->
+
+            <button
+                onclick="goToSolutionPreparation()"
+                style="margin-top: 15px;"
+            >
+                BACK TO SOLUTION PREPARATION
+            </button>
+
+
+
+            <!-- Home -->
+
+            <button
+                onclick="goHome()"
+                style="margin-top: 10px;"
+            >
+                BACK TO HOME
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
+```
