@@ -1,3 +1,4 @@
+```javascript
 // ========================================
 // SOLVIX - Main JavaScript
 // ========================================
@@ -387,10 +388,137 @@ function calculatePercentage() {
 
 
 // ----------------------------------------
+// Update Dilution Fields
+// ----------------------------------------
+
+function updateDilutionFields() {
+
+    const unknown =
+        document.getElementById("dilutionUnknown").value;
+
+
+    const c1 =
+        document.getElementById("c1");
+
+    const v1 =
+        document.getElementById("v1");
+
+    const c2 =
+        document.getElementById("c2");
+
+    const v2 =
+        document.getElementById("v2");
+
+
+    // Enable all fields first
+
+    c1.disabled = false;
+    v1.disabled = false;
+    c2.disabled = false;
+    v2.disabled = false;
+
+
+    // Clear previous values
+
+    c1.value = "";
+    v1.value = "";
+    c2.value = "";
+    v2.value = "";
+
+
+    // Disable selected unknown field
+
+    if (unknown === "c1") {
+
+        c1.disabled = true;
+
+        c1.placeholder =
+            "Calculated automatically";
+
+        v1.placeholder =
+            "Enter V₁";
+
+        c2.placeholder =
+            "Enter C₂";
+
+        v2.placeholder =
+            "Enter V₂";
+
+        return;
+    }
+
+
+    if (unknown === "v1") {
+
+        v1.disabled = true;
+
+        c1.placeholder =
+            "Enter C₁";
+
+        v1.placeholder =
+            "Calculated automatically";
+
+        c2.placeholder =
+            "Enter C₂";
+
+        v2.placeholder =
+            "Enter V₂";
+
+        return;
+    }
+
+
+    if (unknown === "c2") {
+
+        c2.disabled = true;
+
+        c1.placeholder =
+            "Enter C₁";
+
+        v1.placeholder =
+            "Enter V₁";
+
+        c2.placeholder =
+            "Calculated automatically";
+
+        v2.placeholder =
+            "Enter V₂";
+
+        return;
+    }
+
+
+    if (unknown === "v2") {
+
+        v2.disabled = true;
+
+        c1.placeholder =
+            "Enter C₁";
+
+        v1.placeholder =
+            "Enter V₁";
+
+        c2.placeholder =
+            "Enter C₂";
+
+        v2.placeholder =
+            "Calculated automatically";
+
+        return;
+    }
+
+}
+
+
+// ----------------------------------------
 // Dilution Calculator
 // ----------------------------------------
 
 function calculateDilution() {
+
+    const unknown =
+        document.getElementById("dilutionUnknown").value;
+
 
     const c1 =
         parseFloat(
@@ -407,49 +535,202 @@ function calculateDilution() {
             document.getElementById("c2").value
         );
 
+    const v2 =
+        parseFloat(
+            document.getElementById("v2").value
+        );
+
+
     const result =
         document.getElementById("dilutionResult");
 
 
-    // Validate inputs
+    // ------------------------------------
+    // Calculate C1
+    // C1 = C2 × V2 / V1
+    // ------------------------------------
 
-    if (
-        isNaN(c1) ||
-        isNaN(v1) ||
-        isNaN(c2) ||
-        c1 <= 0 ||
-        v1 <= 0 ||
-        c2 <= 0
-    ) {
+    if (unknown === "c1") {
+
+        if (
+            isNaN(v1) ||
+            isNaN(c2) ||
+            isNaN(v2) ||
+            v1 <= 0 ||
+            c2 <= 0 ||
+            v2 <= 0
+        ) {
+
+            result.textContent =
+                "Please enter valid V₁, C₂ and V₂ values.";
+
+            return;
+        }
+
+
+        const calculatedC1 =
+            (c2 * v2) / v1;
+
+
+        if (calculatedC1 < c2) {
+
+            result.textContent =
+                "For a simple dilution, C₁ should not be lower than C₂.";
+
+            return;
+        }
+
+
+        document.getElementById("c1").value =
+            calculatedC1;
+
 
         result.textContent =
-            "Please enter valid C₁, V₁ and C₂ values.";
+            `Initial Concentration (C₁) = ${calculatedC1.toFixed(3)}`;
 
         return;
     }
 
 
-    // C1V1 = C2V2
-    //
-    // V2 = C1V1 / C2
+    // ------------------------------------
+    // Calculate V1
+    // V1 = C2 × V2 / C1
+    // ------------------------------------
 
-    const v2 =
-        (c1 * v1) / c2;
+    if (unknown === "v1") {
+
+        if (
+            isNaN(c1) ||
+            isNaN(c2) ||
+            isNaN(v2) ||
+            c1 <= 0 ||
+            c2 <= 0 ||
+            v2 <= 0
+        ) {
+
+            result.textContent =
+                "Please enter valid C₁, C₂ and V₂ values.";
+
+            return;
+        }
 
 
-    // Check for impossible dilution
+        if (c2 > c1) {
 
-    if (c2 > c1) {
+            result.textContent =
+                "Final concentration cannot be higher than initial concentration for a simple dilution.";
+
+            return;
+        }
+
+
+        const calculatedV1 =
+            (c2 * v2) / c1;
+
+
+        document.getElementById("v1").value =
+            calculatedV1;
+
 
         result.textContent =
-            "Final concentration cannot be higher than initial concentration for a simple dilution.";
+            `Initial Volume (V₁) = ${calculatedV1.toFixed(3)} mL`;
 
         return;
     }
 
 
-    result.textContent =
-        `Final Volume (V₂) = ${v2.toFixed(3)} mL`;
+    // ------------------------------------
+    // Calculate C2
+    // C2 = C1 × V1 / V2
+    // ------------------------------------
+
+    if (unknown === "c2") {
+
+        if (
+            isNaN(c1) ||
+            isNaN(v1) ||
+            isNaN(v2) ||
+            c1 <= 0 ||
+            v1 <= 0 ||
+            v2 <= 0
+        ) {
+
+            result.textContent =
+                "Please enter valid C₁, V₁ and V₂ values.";
+
+            return;
+        }
+
+
+        const calculatedC2 =
+            (c1 * v1) / v2;
+
+
+        if (calculatedC2 > c1) {
+
+            result.textContent =
+                "For a simple dilution, C₂ cannot be higher than C₁.";
+
+            return;
+        }
+
+
+        document.getElementById("c2").value =
+            calculatedC2;
+
+
+        result.textContent =
+            `Final Concentration (C₂) = ${calculatedC2.toFixed(3)}`;
+
+        return;
+    }
+
+
+    // ------------------------------------
+    // Calculate V2
+    // V2 = C1 × V1 / C2
+    // ------------------------------------
+
+    if (unknown === "v2") {
+
+        if (
+            isNaN(c1) ||
+            isNaN(v1) ||
+            isNaN(c2) ||
+            c1 <= 0 ||
+            v1 <= 0 ||
+            c2 <= 0
+        ) {
+
+            result.textContent =
+                "Please enter valid C₁, V₁ and C₂ values.";
+
+            return;
+        }
+
+
+        if (c2 > c1) {
+
+            result.textContent =
+                "Final concentration cannot be higher than initial concentration for a simple dilution.";
+
+            return;
+        }
+
+
+        const calculatedV2 =
+            (c1 * v1) / c2;
+
+
+        document.getElementById("v2").value =
+            calculatedV2;
+
+
+        result.textContent =
+            `Final Volume (V₂) = ${calculatedV2.toFixed(3)} mL`;
+
+        return;
+    }
 
 }
 
@@ -491,3 +772,4 @@ function goHome() {
         "index.html";
 
 }
+```
