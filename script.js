@@ -10,65 +10,35 @@
 
 function openCalculator(type) {
 
-    // Solution Preparation
     if (type === "solution-preparation") {
-
-        window.location.href =
-            "solution-preparation.html";
-
+        window.location.href = "solution-preparation.html";
         return;
     }
 
-
-    // Molarity
     if (type === "molarity") {
-
-        window.location.href =
-            "calculators/molarity.html";
-
+        window.location.href = "calculators/molarity.html";
         return;
     }
 
-
-    // Normality
     if (type === "normality") {
-
-        window.location.href =
-            "calculators/normality.html";
-
+        window.location.href = "calculators/normality.html";
         return;
     }
 
-
-    // Molality
     if (type === "molality") {
-
-        window.location.href =
-            "calculators/molality.html";
-
+        window.location.href = "calculators/molality.html";
         return;
     }
 
-
-    // Percentage Solutions
     if (type === "percentage") {
-
-        window.location.href =
-            "calculators/percentage.html";
-
+        window.location.href = "calculators/percentage.html";
         return;
     }
 
-
-    // Dilution
     if (type === "dilution") {
-
-        window.location.href =
-            "calculators/dilution.html";
-
+        window.location.href = "calculators/dilution.html";
         return;
     }
-
 }
 
 
@@ -78,20 +48,17 @@ function openCalculator(type) {
 
 function calculateMolarity() {
 
-    const mass =
-        parseFloat(
-            document.getElementById("mass").value
-        );
+    const mass = parseFloat(
+        document.getElementById("mass").value
+    );
 
-    const molecularWeight =
-        parseFloat(
-            document.getElementById("molecularWeight").value
-        );
+    const molecularWeight = parseFloat(
+        document.getElementById("molecularWeight").value
+    );
 
-    const volume =
-        parseFloat(
-            document.getElementById("volume").value
-        );
+    const volume = parseFloat(
+        document.getElementById("volume").value
+    );
 
     const result =
         document.getElementById("result");
@@ -119,7 +86,6 @@ function calculateMolarity() {
 
     result.textContent =
         `Molarity = ${molarity.toFixed(3)} M`;
-
 }
 
 
@@ -129,20 +95,17 @@ function calculateMolarity() {
 
 function calculateNormality() {
 
-    const mass =
-        parseFloat(
-            document.getElementById("mass").value
-        );
+    const mass = parseFloat(
+        document.getElementById("mass").value
+    );
 
-    const equivalentWeight =
-        parseFloat(
-            document.getElementById("equivalentWeight").value
-        );
+    const equivalentWeight = parseFloat(
+        document.getElementById("equivalentWeight").value
+    );
 
-    const volume =
-        parseFloat(
-            document.getElementById("volume").value
-        );
+    const volume = parseFloat(
+        document.getElementById("volume").value
+    );
 
     const result =
         document.getElementById("normalityResult");
@@ -170,7 +133,6 @@ function calculateNormality() {
 
     result.textContent =
         `Normality = ${normality.toFixed(3)} N`;
-
 }
 
 
@@ -180,20 +142,17 @@ function calculateNormality() {
 
 function calculateMolality() {
 
-    const soluteMass =
-        parseFloat(
-            document.getElementById("soluteMass").value
-        );
+    const soluteMass = parseFloat(
+        document.getElementById("soluteMass").value
+    );
 
-    const molecularWeight =
-        parseFloat(
-            document.getElementById("molecularWeight").value
-        );
+    const molecularWeight = parseFloat(
+        document.getElementById("molecularWeight").value
+    );
 
-    const solventMass =
-        parseFloat(
-            document.getElementById("solventMass").value
-        );
+    const solventMass = parseFloat(
+        document.getElementById("solventMass").value
+    );
 
     const result =
         document.getElementById("molalityResult");
@@ -218,10 +177,8 @@ function calculateMolality() {
     const solventMassKg =
         solventMass / 1000;
 
-
     const moles =
         soluteMass / molecularWeight;
-
 
     const molality =
         moles / solventMassKg;
@@ -229,7 +186,6 @@ function calculateMolality() {
 
     result.textContent =
         `Molality = ${molality.toFixed(3)} m`;
-
 }
 
 
@@ -255,8 +211,6 @@ function updatePercentageLabels() {
         document.getElementById("solutionUnit");
 
 
-    // % w/v
-
     if (type === "wv") {
 
         amountLabel.textContent =
@@ -274,8 +228,6 @@ function updatePercentageLabels() {
         return;
     }
 
-
-    // % w/w
 
     if (type === "ww") {
 
@@ -295,8 +247,6 @@ function updatePercentageLabels() {
     }
 
 
-    // % v/v
-
     if (type === "vv") {
 
         amountLabel.textContent =
@@ -313,7 +263,6 @@ function updatePercentageLabels() {
 
         return;
     }
-
 }
 
 
@@ -326,15 +275,13 @@ function calculatePercentage() {
     const type =
         document.getElementById("percentageType").value;
 
-    const amount =
-        parseFloat(
-            document.getElementById("amount").value
-        );
+    const amount = parseFloat(
+        document.getElementById("amount").value
+    );
 
-    const solutionAmount =
-        parseFloat(
-            document.getElementById("solutionAmount").value
-        );
+    const solutionAmount = parseFloat(
+        document.getElementById("solutionAmount").value
+    );
 
     const result =
         document.getElementById("percentageResult");
@@ -383,7 +330,6 @@ function calculatePercentage() {
 
         return;
     }
-
 }
 
 
@@ -410,7 +356,7 @@ function updateDilutionFields() {
         document.getElementById("v2");
 
 
-    // Enable all fields first
+    // Enable all fields
 
     c1.disabled = false;
     v1.disabled = false;
@@ -418,7 +364,7 @@ function updateDilutionFields() {
     v2.disabled = false;
 
 
-    // Clear previous values
+    // Clear fields
 
     c1.value = "";
     v1.value = "";
@@ -426,23 +372,21 @@ function updateDilutionFields() {
     v2.value = "";
 
 
-    // Disable selected unknown field
+    // Reset placeholders
+
+    c1.placeholder = "Enter C₁";
+    v1.placeholder = "Enter V₁";
+    c2.placeholder = "Enter C₂";
+    v2.placeholder = "Enter V₂";
+
+
+    // Disable selected field
 
     if (unknown === "c1") {
 
         c1.disabled = true;
-
         c1.placeholder =
             "Calculated automatically";
-
-        v1.placeholder =
-            "Enter V₁";
-
-        c2.placeholder =
-            "Enter C₂";
-
-        v2.placeholder =
-            "Enter V₂";
 
         return;
     }
@@ -451,18 +395,8 @@ function updateDilutionFields() {
     if (unknown === "v1") {
 
         v1.disabled = true;
-
-        c1.placeholder =
-            "Enter C₁";
-
         v1.placeholder =
             "Calculated automatically";
-
-        c2.placeholder =
-            "Enter C₂";
-
-        v2.placeholder =
-            "Enter V₂";
 
         return;
     }
@@ -471,18 +405,8 @@ function updateDilutionFields() {
     if (unknown === "c2") {
 
         c2.disabled = true;
-
-        c1.placeholder =
-            "Enter C₁";
-
-        v1.placeholder =
-            "Enter V₁";
-
         c2.placeholder =
             "Calculated automatically";
-
-        v2.placeholder =
-            "Enter V₂";
 
         return;
     }
@@ -491,22 +415,11 @@ function updateDilutionFields() {
     if (unknown === "v2") {
 
         v2.disabled = true;
-
-        c1.placeholder =
-            "Enter C₁";
-
-        v1.placeholder =
-            "Enter V₁";
-
-        c2.placeholder =
-            "Enter C₂";
-
         v2.placeholder =
             "Calculated automatically";
 
         return;
     }
-
 }
 
 
@@ -731,7 +644,6 @@ function calculateDilution() {
 
         return;
     }
-
 }
 
 
@@ -743,7 +655,6 @@ function goToSolutionPreparation() {
 
     window.location.href =
         "../solution-preparation.html";
-
 }
 
 
@@ -770,6 +681,5 @@ function goHome() {
 
     window.location.href =
         "index.html";
-
 }
 ```
