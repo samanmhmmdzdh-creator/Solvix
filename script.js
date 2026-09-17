@@ -12,7 +12,8 @@ function openCalculator(type) {
     // Solution Preparation
     if (type === "solution-preparation") {
 
-        window.location.href = "solution-preparation.html";
+        window.location.href =
+            "solution-preparation.html";
 
         return;
     }
@@ -23,6 +24,16 @@ function openCalculator(type) {
 
         window.location.href =
             "calculators/molarity.html";
+
+        return;
+    }
+
+
+    // Normality
+    if (type === "normality") {
+
+        window.location.href =
+            "calculators/normality.html";
 
         return;
     }
@@ -74,17 +85,87 @@ function calculateMolarity() {
 
 
     // Molarity formula
-    //
     // M = mass / molecular weight / volume
 
     const molarity =
         mass / molecularWeight / volume;
 
 
-    // Show result
+    // Display result
 
     result.textContent =
         `Molarity = ${molarity.toFixed(3)} M`;
+
+}
+
+
+// ----------------------------------------
+// Normality Calculator
+// ----------------------------------------
+
+function calculateNormality() {
+
+    const mass =
+        parseFloat(
+            document.getElementById("mass").value
+        );
+
+    const equivalentWeight =
+        parseFloat(
+            document.getElementById("equivalentWeight").value
+        );
+
+    const volume =
+        parseFloat(
+            document.getElementById("volume").value
+        );
+
+    const result =
+        document.getElementById("normalityResult");
+
+
+    // Validate inputs
+
+    if (
+        isNaN(mass) ||
+        isNaN(equivalentWeight) ||
+        isNaN(volume) ||
+        mass <= 0 ||
+        equivalentWeight <= 0 ||
+        volume <= 0
+    ) {
+
+        result.textContent =
+            "Please enter valid values.";
+
+        return;
+    }
+
+
+    // Normality formula
+    //
+    // N = mass / equivalent weight / volume
+
+    const normality =
+        mass / equivalentWeight / volume;
+
+
+    // Display result
+
+    result.textContent =
+        `Normality = ${normality.toFixed(3)} N`;
+
+}
+
+
+// ----------------------------------------
+// Back to Solution Preparation
+// ----------------------------------------
+
+function goToSolutionPreparation() {
+
+    window.location.href =
+        "../solution-preparation.html";
 
 }
 
@@ -112,7 +193,7 @@ function goHome() {
     }
 
 
-    // If we are on another page
+    // If we are on the main folder
 
     window.location.href =
         "index.html";
