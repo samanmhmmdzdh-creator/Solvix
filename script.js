@@ -48,6 +48,16 @@ function openCalculator(type) {
         return;
     }
 
+
+    // Percentage Solutions
+    if (type === "percentage") {
+
+        window.location.href =
+            "calculators/percentage.html";
+
+        return;
+    }
+
 }
 
 
@@ -194,19 +204,13 @@ function calculateMolality() {
     }
 
 
-    // Convert solvent mass from grams to kilograms
-
     const solventMassKg =
         solventMass / 1000;
 
 
-    // Calculate moles of solute
-
     const moles =
         soluteMass / molecularWeight;
 
-
-    // Molality = moles of solute / kg of solvent
 
     const molality =
         moles / solventMassKg;
@@ -214,6 +218,166 @@ function calculateMolality() {
 
     result.textContent =
         `Molality = ${molality.toFixed(3)} m`;
+
+}
+
+
+// ----------------------------------------
+// Update Percentage Labels
+// ----------------------------------------
+
+function updatePercentageLabels() {
+
+    const type =
+        document.getElementById("percentageType").value;
+
+    const amountLabel =
+        document.getElementById("amountLabel");
+
+    const amountUnit =
+        document.getElementById("amountUnit");
+
+    const solutionLabel =
+        document.getElementById("solutionLabel");
+
+    const solutionUnit =
+        document.getElementById("solutionUnit");
+
+
+    // % w/v
+
+    if (type === "wv") {
+
+        amountLabel.textContent =
+            "Mass of Solute";
+
+        amountUnit.textContent =
+            "g";
+
+        solutionLabel.textContent =
+            "Volume of Solution";
+
+        solutionUnit.textContent =
+            "mL";
+
+        return;
+    }
+
+
+    // % w/w
+
+    if (type === "ww") {
+
+        amountLabel.textContent =
+            "Mass of Solute";
+
+        amountUnit.textContent =
+            "g";
+
+        solutionLabel.textContent =
+            "Mass of Solution";
+
+        solutionUnit.textContent =
+            "g";
+
+        return;
+    }
+
+
+    // % v/v
+
+    if (type === "vv") {
+
+        amountLabel.textContent =
+            "Volume of Solute";
+
+        amountUnit.textContent =
+            "mL";
+
+        solutionLabel.textContent =
+            "Volume of Solution";
+
+        solutionUnit.textContent =
+            "mL";
+
+        return;
+    }
+
+}
+
+
+// ----------------------------------------
+// Percentage Calculator
+// ----------------------------------------
+
+function calculatePercentage() {
+
+    const type =
+        document.getElementById("percentageType").value;
+
+    const amount =
+        parseFloat(
+            document.getElementById("amount").value
+        );
+
+    const solutionAmount =
+        parseFloat(
+            document.getElementById("solutionAmount").value
+        );
+
+    const result =
+        document.getElementById("percentageResult");
+
+
+    // Validate inputs
+
+    if (
+        isNaN(amount) ||
+        isNaN(solutionAmount) ||
+        amount <= 0 ||
+        solutionAmount <= 0
+    ) {
+
+        result.textContent =
+            "Please enter valid values.";
+
+        return;
+    }
+
+
+    // Percentage calculation
+
+    const percentage =
+        (amount / solutionAmount) * 100;
+
+
+    // Display result
+
+    if (type === "wv") {
+
+        result.textContent =
+            `% w/v = ${percentage.toFixed(3)} %`;
+
+        return;
+    }
+
+
+    if (type === "ww") {
+
+        result.textContent =
+            `% w/w = ${percentage.toFixed(3)} %`;
+
+        return;
+    }
+
+
+    if (type === "vv") {
+
+        result.textContent =
+            `% v/v = ${percentage.toFixed(3)} %`;
+
+        return;
+    }
 
 }
 
