@@ -1,1 +1,201 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Solvix - Dilution</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="logo">
+                SOLVIX
+            </div>
+
+            <div class="subtitle">
+                Dilution Calculator
+            </div>
+
+            <p class="choose-text">
+                C₁V₁ = C₂V₂
+            </p>
+
+        </header>
+
+
+
+        <!-- Calculator -->
+
+        <div class="calculator">
+
+
+            <!-- Initial Concentration -->
+
+            <div class="input-group">
+
+                <label for="c1">
+                    Initial Concentration (C₁)
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="c1"
+                        placeholder="Enter initial concentration"
+                        step="any"
+                    >
+
+                    <span>unit</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Initial Volume -->
+
+            <div class="input-group">
+
+                <label for="v1">
+                    Initial Volume (V₁)
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="v1"
+                        placeholder="Enter initial volume"
+                        step="any"
+                    >
+
+                    <span>mL</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Final Concentration -->
+
+            <div class="input-group">
+
+                <label for="c2">
+                    Final Concentration (C₂)
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="c2"
+                        placeholder="Enter final concentration"
+                        step="any"
+                    >
+
+                    <span>unit</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Final Volume -->
+
+            <div class="input-group">
+
+                <label for="v2">
+                    Final Volume (V₂)
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="v2"
+                        placeholder="Enter final volume"
+                        step="any"
+                    >
+
+                    <span>mL</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Calculate -->
+
+            <button onclick="calculateDilution()">
+                CALCULATE
+            </button>
+
+
+
+            <!-- Result -->
+
+            <div class="result">
+
+                <div class="result-label">
+                    Result
+                </div>
+
+                <div id="dilutionResult">
+                    Enter values to calculate dilution.
+                </div>
+
+            </div>
+
+
+
+            <!-- Back to Home -->
+
+            <button
+                onclick="goHome()"
+                style="margin-top: 15px;"
+            >
+                BACK TO HOME
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
+```
