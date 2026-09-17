@@ -1,1 +1,183 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Solvix - Molality</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="logo">
+                SOLVIX
+            </div>
+
+            <div class="subtitle">
+                Molality Calculator
+            </div>
+
+        </header>
+
+
+
+        <!-- Calculator -->
+
+        <div class="calculator">
+
+
+            <!-- Mass of Solute -->
+
+            <div class="input-group">
+
+                <label for="soluteMass">
+                    Mass of Solute
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="soluteMass"
+                        placeholder="Enter solute mass"
+                        step="any"
+                    >
+
+                    <span>g</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Molecular Weight -->
+
+            <div class="input-group">
+
+                <label for="molecularWeight">
+                    Molecular Weight
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="molecularWeight"
+                        placeholder="Enter molecular weight"
+                        step="any"
+                    >
+
+                    <span>g/mol</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Solvent Mass -->
+
+            <div class="input-group">
+
+                <label for="solventMass">
+                    Mass of Solvent
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="solventMass"
+                        placeholder="Enter solvent mass"
+                        step="any"
+                    >
+
+                    <span>g</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Calculate -->
+
+            <button onclick="calculateMolality()">
+                CALCULATE
+            </button>
+
+
+
+            <!-- Result -->
+
+            <div class="result">
+
+                <div class="result-label">
+                    Result
+                </div>
+
+                <div id="molalityResult">
+                    Molality = 0.000 m
+                </div>
+
+            </div>
+
+
+
+            <!-- Back to Solution Preparation -->
+
+            <button
+                onclick="goToSolutionPreparation()"
+                style="margin-top: 15px;"
+            >
+                BACK TO SOLUTION PREPARATION
+            </button>
+
+
+
+            <!-- Back to Home -->
+
+            <button
+                onclick="goHome()"
+                style="margin-top: 10px;"
+            >
+                BACK TO HOME
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
+```
