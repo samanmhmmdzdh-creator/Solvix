@@ -51,7 +51,54 @@
         <div class="calculator">
 
 
-            <!-- Initial Concentration -->
+            <!-- Calculate -->
+
+            <div class="input-group">
+
+                <label for="dilutionUnknown">
+                    Calculate
+                </label>
+
+                <div class="input-row">
+
+                    <select
+                        id="dilutionUnknown"
+                        onchange="updateDilutionFields()"
+                        style="
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            background: transparent;
+                            padding: 14px;
+                            font-size: 16px;
+                        "
+                    >
+
+                        <option value="v2">
+                            Final Volume (V₂)
+                        </option>
+
+                        <option value="v1">
+                            Initial Volume (V₁)
+                        </option>
+
+                        <option value="c2">
+                            Final Concentration (C₂)
+                        </option>
+
+                        <option value="c1">
+                            Initial Concentration (C₁)
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- C1 -->
 
             <div class="input-group">
 
@@ -64,7 +111,7 @@
                     <input
                         type="number"
                         id="c1"
-                        placeholder="Enter initial concentration"
+                        placeholder="Enter C₁"
                         step="any"
                     >
 
@@ -76,7 +123,7 @@
 
 
 
-            <!-- Initial Volume -->
+            <!-- V1 -->
 
             <div class="input-group">
 
@@ -89,7 +136,7 @@
                     <input
                         type="number"
                         id="v1"
-                        placeholder="Enter initial volume"
+                        placeholder="Enter V₁"
                         step="any"
                     >
 
@@ -101,7 +148,7 @@
 
 
 
-            <!-- Final Concentration -->
+            <!-- C2 -->
 
             <div class="input-group">
 
@@ -114,7 +161,7 @@
                     <input
                         type="number"
                         id="c2"
-                        placeholder="Enter final concentration"
+                        placeholder="Enter C₂"
                         step="any"
                     >
 
@@ -126,7 +173,7 @@
 
 
 
-            <!-- Final Volume -->
+            <!-- V2 -->
 
             <div class="input-group">
 
@@ -139,7 +186,7 @@
                     <input
                         type="number"
                         id="v2"
-                        placeholder="Enter final volume"
+                        placeholder="Enter V₂"
                         step="any"
                     >
 
@@ -151,7 +198,7 @@
 
 
 
-            <!-- Calculate -->
+            <!-- Calculate Button -->
 
             <button onclick="calculateDilution()">
                 CALCULATE
@@ -168,8 +215,34 @@
                 </div>
 
                 <div id="dilutionResult">
-                    Enter values to calculate dilution.
+                    Enter values to calculate.
                 </div>
+
+            </div>
+
+
+
+            <!-- Formula -->
+
+            <div
+                style="
+                    margin-top: 20px;
+                    padding: 15px;
+                    background: #f8fafc;
+                    border-radius: 12px;
+                    text-align: center;
+                    color: #475569;
+                    font-size: 14px;
+                "
+            >
+
+                <strong>
+                    Dilution Formula
+                </strong>
+
+                <br>
+
+                C₁ × V₁ = C₂ × V₂
 
             </div>
 
