@@ -58,6 +58,16 @@ function openCalculator(type) {
         return;
     }
 
+
+    // Dilution
+    if (type === "dilution") {
+
+        window.location.href =
+            "calculators/dilution.html";
+
+        return;
+    }
+
 }
 
 
@@ -329,8 +339,6 @@ function calculatePercentage() {
         document.getElementById("percentageResult");
 
 
-    // Validate inputs
-
     if (
         isNaN(amount) ||
         isNaN(solutionAmount) ||
@@ -345,13 +353,9 @@ function calculatePercentage() {
     }
 
 
-    // Percentage calculation
-
     const percentage =
         (amount / solutionAmount) * 100;
 
-
-    // Display result
 
     if (type === "wv") {
 
@@ -378,6 +382,74 @@ function calculatePercentage() {
 
         return;
     }
+
+}
+
+
+// ----------------------------------------
+// Dilution Calculator
+// ----------------------------------------
+
+function calculateDilution() {
+
+    const c1 =
+        parseFloat(
+            document.getElementById("c1").value
+        );
+
+    const v1 =
+        parseFloat(
+            document.getElementById("v1").value
+        );
+
+    const c2 =
+        parseFloat(
+            document.getElementById("c2").value
+        );
+
+    const result =
+        document.getElementById("dilutionResult");
+
+
+    // Validate inputs
+
+    if (
+        isNaN(c1) ||
+        isNaN(v1) ||
+        isNaN(c2) ||
+        c1 <= 0 ||
+        v1 <= 0 ||
+        c2 <= 0
+    ) {
+
+        result.textContent =
+            "Please enter valid C₁, V₁ and C₂ values.";
+
+        return;
+    }
+
+
+    // C1V1 = C2V2
+    //
+    // V2 = C1V1 / C2
+
+    const v2 =
+        (c1 * v1) / c2;
+
+
+    // Check for impossible dilution
+
+    if (c2 > c1) {
+
+        result.textContent =
+            "Final concentration cannot be higher than initial concentration for a simple dilution.";
+
+        return;
+    }
+
+
+    result.textContent =
+        `Final Volume (V₂) = ${v2.toFixed(3)} mL`;
 
 }
 
