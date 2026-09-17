@@ -42,5 +42,164 @@
 
 
 
-        <!-- Calculator
+        <!-- Calculator -->
+
+        <div class="calculator">
+
+
+            <!-- Percentage Type -->
+
+            <div class="input-group">
+
+                <label for="percentageType">
+                    Percentage Type
+                </label>
+
+                <div class="input-row">
+
+                    <select
+                        id="percentageType"
+                        onchange="updatePercentageLabels()"
+                        style="
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            background: transparent;
+                            padding: 14px;
+                            font-size: 16px;
+                        "
+                    >
+
+                        <option value="wv">
+                            % w/v
+                        </option>
+
+                        <option value="ww">
+                            % w/w
+                        </option>
+
+                        <option value="vv">
+                            % v/v
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Solute Amount -->
+
+            <div class="input-group">
+
+                <label id="amountLabel" for="amount">
+                    Mass of Solute
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="Enter amount"
+                        step="any"
+                    >
+
+                    <span id="amountUnit">
+                        g
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Total Solution -->
+
+            <div class="input-group">
+
+                <label id="solutionLabel" for="solutionAmount">
+                    Volume of Solution
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="solutionAmount"
+                        placeholder="Enter solution amount"
+                        step="any"
+                    >
+
+                    <span id="solutionUnit">
+                        mL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Calculate -->
+
+            <button onclick="calculatePercentage()">
+                CALCULATE
+            </button>
+
+
+
+            <!-- Result -->
+
+            <div class="result">
+
+                <div class="result-label">
+                    Result
+                </div>
+
+                <div id="percentageResult">
+                    Percentage = 0.000 %
+                </div>
+
+            </div>
+
+
+
+            <!-- Back to Solution Preparation -->
+
+            <button
+                onclick="goToSolutionPreparation()"
+                style="margin-top: 15px;"
+            >
+                BACK TO SOLUTION PREPARATION
+            </button>
+
+
+
+            <!-- Back to Home -->
+
+            <button
+                onclick="goHome()"
+                style="margin-top: 10px;"
+            >
+                BACK TO HOME
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
 ```
