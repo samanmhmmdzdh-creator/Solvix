@@ -38,6 +38,16 @@ function openCalculator(type) {
         return;
     }
 
+
+    // Molality
+    if (type === "molality") {
+
+        window.location.href =
+            "calculators/molality.html";
+
+        return;
+    }
+
 }
 
 
@@ -66,8 +76,6 @@ function calculateMolarity() {
         document.getElementById("result");
 
 
-    // Validate inputs
-
     if (
         isNaN(mass) ||
         isNaN(molecularWeight) ||
@@ -84,14 +92,9 @@ function calculateMolarity() {
     }
 
 
-    // Molarity formula
-    // M = mass / molecular weight / volume
-
     const molarity =
         mass / molecularWeight / volume;
 
-
-    // Display result
 
     result.textContent =
         `Molarity = ${molarity.toFixed(3)} M`;
@@ -124,8 +127,6 @@ function calculateNormality() {
         document.getElementById("normalityResult");
 
 
-    // Validate inputs
-
     if (
         isNaN(mass) ||
         isNaN(equivalentWeight) ||
@@ -142,18 +143,77 @@ function calculateNormality() {
     }
 
 
-    // Normality formula
-    //
-    // N = mass / equivalent weight / volume
-
     const normality =
         mass / equivalentWeight / volume;
 
 
-    // Display result
-
     result.textContent =
         `Normality = ${normality.toFixed(3)} N`;
+
+}
+
+
+// ----------------------------------------
+// Molality Calculator
+// ----------------------------------------
+
+function calculateMolality() {
+
+    const soluteMass =
+        parseFloat(
+            document.getElementById("soluteMass").value
+        );
+
+    const molecularWeight =
+        parseFloat(
+            document.getElementById("molecularWeight").value
+        );
+
+    const solventMass =
+        parseFloat(
+            document.getElementById("solventMass").value
+        );
+
+    const result =
+        document.getElementById("molalityResult");
+
+
+    if (
+        isNaN(soluteMass) ||
+        isNaN(molecularWeight) ||
+        isNaN(solventMass) ||
+        soluteMass <= 0 ||
+        molecularWeight <= 0 ||
+        solventMass <= 0
+    ) {
+
+        result.textContent =
+            "Please enter valid values.";
+
+        return;
+    }
+
+
+    // Convert solvent mass from grams to kilograms
+
+    const solventMassKg =
+        solventMass / 1000;
+
+
+    // Calculate moles of solute
+
+    const moles =
+        soluteMass / molecularWeight;
+
+
+    // Molality = moles of solute / kg of solvent
+
+    const molality =
+        moles / solventMassKg;
+
+
+    result.textContent =
+        `Molality = ${molality.toFixed(3)} m`;
 
 }
 
@@ -180,8 +240,6 @@ function goHome() {
         window.location.pathname;
 
 
-    // If we are inside calculators folder
-
     if (
         currentPath.includes("/calculators/")
     ) {
@@ -192,8 +250,6 @@ function goHome() {
         return;
     }
 
-
-    // If we are on the main folder
 
     window.location.href =
         "index.html";
